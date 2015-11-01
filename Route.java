@@ -6,6 +6,7 @@ package com.innovations.simple.simplemiles.maps;
 import java.util.List;
 import java.util.ArrayList;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 public class Route
 {
@@ -56,6 +57,12 @@ public class Route
 
     public String getEncodedOverviewPolyline(){
         return encodedPolyline;
+    }
+
+    public PolylineOptions getOverviewPolyline(){
+        PolylineOptions po = new PolylineOptions();
+        po.addAll(MapUtils.decode(encodedPolyline));
+        return po;
     }
 
     public Route setCopyrights(String txt) throws FinalModifierException{

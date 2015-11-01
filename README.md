@@ -21,13 +21,15 @@ Calling the API:
 
 ```
 RouteInfoTask task = new RouteInfoTask(new StartEndPoints(
-                        locations.get(l1pos).getAddress(),
-                        locations.get(l2pos).getAddress()));
+                       startAddress,
+                        endAddress);
 				task.registerInfoListener(this);
 				task.execute();
- ```
+                
+```
 
 In class where you use maps:
+
 ```
 @Override
     public void onMapReady(GoogleMap map) {
@@ -36,7 +38,7 @@ In class where you use maps:
             map.addMarker(new MarkerOptions().position(ri.getStartPoint()).title(ri.getStartAddress()));
             map.addMarker(new MarkerOptions().position(ri.getEndPoint()).title(ri.getEndAddress()));
             for(Route r: ri.getRoutes()){
-                map.addPolyline(new PolylineOptions().addAll(MapUtils.decode(r.getEncodedOverviewPolyline())));
+                map.addPolyline(r.getOverviewPolyline());
             }
             LatLngBounds bounds = new LatLngBounds(ri.getRoutes().get(0).getSouthwest(),
                     ri.getRoutes().get(0).getNortheast());
