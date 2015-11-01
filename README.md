@@ -14,8 +14,9 @@ In class, override RouteInfoTask.InfoRetrievedListener:
         Intent mapsIntent = new Intent(MyActivity.this, MapsActivity.class);
         startActivity(mapsIntent);
     }
-... ```
+... 
 
+```
 Calling the API:
 
 ```
