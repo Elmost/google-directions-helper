@@ -44,4 +44,6 @@ In class where you use maps:
                     ri.getRoutes().get(0).getNortheast());
             map.moveCamera(CameraUpdateFactory.newLatLngBounds(ri.getBounds(), 10));
         }
-    } ```
+    } 
+
+```
