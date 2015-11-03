@@ -59,9 +59,9 @@ public class Route
         return encodedPolyline;
     }
 
-    public PolylineOptions getOverviewPolyline(){
+    public PolylineOptions getOverviewPolyline(float width, int color){
         PolylineOptions po = new PolylineOptions();
-        po.addAll(MapUtils.decode(encodedPolyline));
+        po.addAll(MapUtils.decode(encodedPolyline)).width(width).color(color);
         return po;
     }
 
